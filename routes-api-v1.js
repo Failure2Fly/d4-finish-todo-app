@@ -9,7 +9,7 @@ module.exports.setup = (router, uploads, knex) => {
     // Get all todos
     router.get('/todos', function(request, response) {
 
-        knex.select('*').table('todos').orderBy('category', 'asc').then(function(data) {
+        knex.select('*').table('todos').orderBy('due_date', 'asc').then(function(data) {
             response.json(data)
         })
 
@@ -36,9 +36,9 @@ module.exports.setup = (router, uploads, knex) => {
 
     })
 
-    router.get('/todos/todoId/complete', function(request, response) {
+    router.get('/todos/:todoId/complete', function(request, response) {
         // Your code goes here...
-        let update = {
+        let todo = {
                 completed: 'yes'
             }
         knex.update(todo).table('todos').where('id', '=', request.params.todoId).then(function(data) {
@@ -46,9 +46,9 @@ module.exports.setup = (router, uploads, knex) => {
         })
     })
 
-    router.get('/todos/todoId/incomplete', function(request, response) {
+    router.get('/todos/:todoId/incomplete', function(request, response) {
         // Your code goes here...
-        let update = {
+        let todo = {
                 completed: 'no'
             }
         knex.update(todo).table('todos').where('id', '=', request.params.todoId).then(function(data) {

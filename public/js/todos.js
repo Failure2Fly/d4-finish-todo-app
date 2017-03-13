@@ -45,17 +45,16 @@ function handleClickOnCheckbox(e) {
     if (e.target.type === 'checkbox') {
         // Get the data-id attribute that has the current todo item ID
         // Your code goes here...
-        toggleTodoComplete(e.target.dataset.id, e.target.checked)
+
+        // toggleTodoComplete(e.target.dataset.id, e.target.checked)
+        var todoId = e.target.getAttribute('data-id')
 
         // Check to see if the checkbox is checked (returns true if it is, false if it isn't)
         // Your code goes here...
-        return true
+        var isComplete = e.target.checked
         
         // Call the toggleTodoComplete function and pass our ID and completion status to it
         toggleTodoComplete(todoId, isComplete)
-    }
-    else {
-        return false
     }
 }
 
