@@ -13,6 +13,7 @@ module.exports.setup = (router, uploads, knex) => {
             response.json(data)
         })
 
+
     })
 
     // Post a new todo
@@ -35,7 +36,7 @@ module.exports.setup = (router, uploads, knex) => {
 
     })
 
-    router.get('/todos/:todoId/complete', function(request, response) {
+    router.get('/todos/todoId/complete', function(request, response) {
         // Your code goes here...
         let update = {
                 completed: 'yes'
@@ -44,8 +45,8 @@ module.exports.setup = (router, uploads, knex) => {
             response.json(true)
         })
     })
-    
-    router.get('/todos/:todoId/incomplete', function(request, response) {
+
+    router.get('/todos/todoId/incomplete', function(request, response) {
         // Your code goes here...
         let update = {
                 completed: 'no'
